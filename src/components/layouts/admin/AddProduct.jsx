@@ -29,7 +29,7 @@ class AddProduct extends Component {
       let {name, description, brand, imageUrl, price, category} = this.state.product
     return (
       <div>
-          <h2> Add Product</h2>
+          <h2 className="text-center"> Add Product</h2>
         <Form>
           <FormGroup>
             <Label for="name">Name</Label>
