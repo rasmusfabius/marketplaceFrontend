@@ -16,6 +16,7 @@ class DisplayProducts extends Component {
             isLoading:false
         })
     }
+    
   render() {
     return (
       <>
@@ -33,7 +34,7 @@ class DisplayProducts extends Component {
             </tr>
           </thead>
           <tbody >
-             { this.state.products && <singleProduct product={this.state.products}/>}
+             { this.state.products && this.state.products.map((item, i) => <singleProduct product={item} key={i}/>)}
           </tbody>
         </Table>
       </>
