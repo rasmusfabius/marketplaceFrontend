@@ -16,7 +16,7 @@ class NavComponent extends Component {
       <>
         <Navbar className="top-navbar"  expand="md" style={{background:'#232F3E'}}> 
           <NavbarBrand href="/">
-            <h>Amazon</h>
+            <h1>Amazon</h1>
           </NavbarBrand>
           <NavbarToggler />
           <Collapse navbar>
