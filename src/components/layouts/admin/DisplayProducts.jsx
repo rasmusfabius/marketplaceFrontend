@@ -20,7 +20,7 @@ class DisplayProducts extends Component {
   render() {
     return (
       <>
-        <Table>
+        <Table className="my-4" dark>
           <thead>
             <tr>
               <th scope="col">Id</th>

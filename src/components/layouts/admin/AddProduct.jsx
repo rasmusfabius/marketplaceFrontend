@@ -19,12 +19,14 @@ class AddProduct extends Component {
         let newProduct = this.state.product
         newProduct[name] = value
         this.setState({
-            products:newProduct
+            product:newProduct
         })
     }
+
     handleSubmit = async () => {
-        await addProduct(this.state.product)
+        let request = await addProduct(this.state.product)
     }
+
   render() {
       let {name, description, brand, imageUrl, price, category} = this.state.product
     return (
@@ -56,7 +58,7 @@ class AddProduct extends Component {
           <FormGroup>
             <Label for="description">Brand</Label>
             <Input
-              type="textarea"
+              type="text"
               name="brand"
               id="brand"
               value={brand}
@@ -67,7 +69,7 @@ class AddProduct extends Component {
           <FormGroup>
             <Label for="description">Image</Label>
             <Input
-              type="textarea"
+              type="url"
               name="imageUrl"
               id="imageUrl"
               value={imageUrl}
@@ -78,7 +80,7 @@ class AddProduct extends Component {
           <FormGroup>
             <Label for="description">Price</Label>
             <Input
-              type="textarea"
+              type="number"
               name="price"
               id="price"
               value={price}
@@ -87,13 +89,13 @@ class AddProduct extends Component {
             />
           </FormGroup>
           <FormGroup>
-            <Label for="description">Category</Label>
+            <Label for="category">Category</Label>
             <Input
-              type="textarea"
-              name="category:"
-              id="category:"
-              value={category:}
-              placeholder="category:"
+              type="text"
+              name="category"
+              id="category"
+              value={category}
+              placeholder="category"
               onChange={this.handleInput}
             />
           </FormGroup>

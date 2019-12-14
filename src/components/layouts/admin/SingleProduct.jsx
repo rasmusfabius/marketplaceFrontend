@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {Button} from 'reactstrap'
 
 class SingleProduct extends Component {
   render() {
@@ -20,8 +21,8 @@ class SingleProduct extends Component {
             ></img>
           </td>
           <td> {product.price}</td>
-          <td>Edit</td>
-          <td>Delete</td>
+          <td> <Button outline color="warning">Edit</Button></td>
+          <td><Button outline color="danger">Delete </Button></td>
         </tr>
       </>
     );
