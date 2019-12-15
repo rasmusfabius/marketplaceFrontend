@@ -8,17 +8,18 @@ const Product= ({ products }) => {
     <>
       <Col md="4">
           <Card style={{ background: "transparent" }}>
+          <CardTitle  className=""> <h3>{products.name}</h3></CardTitle>
             <Link to={`/reviews/${products._id}`}>
               <CardImg
                 top
                 width="100%"
                 src={products.imageUrl}
-                alt="Card image cap"
+                alt={products.name}
               />
             </Link>
             <CardBody>
-                <CardTitle  className=""><strong>NAME:</strong> {products.name}</CardTitle>
-                <CardText  className=""><strong>PRICE:</strong> {products.price}</CardText>
+                <CardTitle  className=""><strong>CATEGORY:</strong> {products.category}</CardTitle>
+                <CardText  className=""><strong>PRICE:</strong> {`$${products.price}`}</CardText>
             </CardBody>
           </Card>
       </Col>
