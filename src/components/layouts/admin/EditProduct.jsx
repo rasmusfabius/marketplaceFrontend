@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import {addProducts} from '../../../helpers/Api'
+import {EditProducts} from '../../../helpers/Api'
 
-class AddProduct extends Component {
+class EditProduct extends Component {
     state= {
         product:{
-            name: '',
-            description: '',
-            brand: '',
-            imageUrl: '',
-            price:0,
-            category:''
+            name: this.props.product.name,
+            description: this.props.product.description,
+            brand: this.props.product.brand,
+            imageUrl: this.props.product.imageUrl,
+            price:this.props.product.price,
+            category:this.props.product.category
         }
     }
 
@@ -24,15 +24,15 @@ class AddProduct extends Component {
     }
 
     handleSubmit = async () => {
-        let request = await addProducts(this.state.product)
+        let request = await EditProducts(this.state.product,this.props.product._id)
+        this.props.cancel()
     }
 
   render() {
-      const {name, description, brand, imageUrl, price, category} = this.state.product
-      const {cancel} = this.props
+      let {name, description, brand, imageUrl, price, category} = this.state.product
     return (
       <div>
-          <h2 className="text-center"> Add Product</h2>
+          <h2 className="text-center"> Edit Product</h2>
         <Form>
           <FormGroup>
             <Label for="name">Name</Label>
@@ -43,7 +43,6 @@ class AddProduct extends Component {
               value={name}
               placeholder="name"
               onChange={this.handleInput}
-              required
             />
           </FormGroup>
           <FormGroup>
@@ -55,7 +54,6 @@ class AddProduct extends Component {
               value={description}
               placeholder="description"
               onChange={this.handleInput}
-              required
             />
           </FormGroup>
           <FormGroup>
@@ -67,7 +65,6 @@ class AddProduct extends Component {
               value={brand}
               placeholder="brand"
               onChange={this.handleInput}
-              required
             />
           </FormGroup>
           <FormGroup>
@@ -80,7 +77,6 @@ class AddProduct extends Component {
               placeholder="imageUrl"
               onChange={this.handleInput}
             />
-            <Input type="file"/>
           </FormGroup>
           <FormGroup>
             <Label for="description">Price</Label>
@@ -91,7 +87,6 @@ class AddProduct extends Component {
               value={price}
               placeholder="price"
               onChange={this.handleInput}
-              required
             />
           </FormGroup>
           <FormGroup>
@@ -103,15 +98,13 @@ class AddProduct extends Component {
               value={category}
               placeholder="category"
               onChange={this.handleInput}
-              required
             />
           </FormGroup>
-          <Button color="primary" onClick={this.handleSubmit}> Add</Button>
-          <Button color="warning" onClick={cancel}> Cancel</Button>
+          <Button color="primary" onClick={this.handleSubmit}> Edit</Button>
         </Form>
       </div>
     );
   }
 }
 
-export default AddProduct;
+export default EditProduct;

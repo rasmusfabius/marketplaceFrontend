@@ -4,7 +4,7 @@ export const getAllProducts = async () => {
     return await request.json()
 }
 
-export const addProduct = async (product) => {
+export const addProducts = async (product) => {
     const postInit = {
         method: 'POST',
         headers: {
@@ -16,3 +16,24 @@ export const addProduct = async (product) => {
     let request = await fetch(REACT_APP_GET_ALL_PRODUCTS,postInit)
     return await request.json()
 }
+
+export const EditProducts = async (product,id) => {
+    const postInit = {
+        method: 'PUT',
+        headers: {
+            'content-type': 'application/json',
+            'Accept': 'application/json'
+        },
+
+        body: JSON.stringify(product)
+    }
+    let request = await fetch(REACT_APP_GET_ALL_PRODUCTS + id,postInit)
+    return await request.json()
+}
+
+export const deleteProduct = async id => {
+    let request = await fetch(`${REACT_APP_GET_ALL_PRODUCTS}${id}`, {
+        method: 'DELETE'
+    })
+    return await request.json()
+} 

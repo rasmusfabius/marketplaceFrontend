@@ -1,7 +1,18 @@
 import React, { Component } from "react";
 import {Button} from 'reactstrap'
+import {deleteProduct} from '../../../helpers/Api'
 
 class SingleProduct extends Component {
+
+  displayEditForm = () => {
+    this.props.setProductToEdit(this.props.product)
+    console.log(this.props.product)
+    this.props.setEditState()
+  }
+
+  deleteProduct = async () => {
+    let response = await deleteProduct(this.props.product._id)
+  }
   render() {
     let { product } = this.props;
     return (
@@ -21,8 +32,8 @@ class SingleProduct extends Component {
             ></img>
           </td>
           <td> {product.price}</td>
-          <td> <Button outline color="warning">Edit</Button></td>
-          <td><Button outline color="danger">Delete </Button></td>
+          <td> <Button outline color="warning" onClick={this.displayEditForm}>Edit</Button></td>
+          <td><Button outline color="danger" onClick={this.deleteProduct}>Delete </Button></td>
         </tr>
       </>
     );
