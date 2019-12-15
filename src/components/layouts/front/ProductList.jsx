@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Card, CardBody ,Row,CardTitle} from "reactstrap";
 import {getAllProducts} from '../../../helpers/Api'
 import Product from './Product'
-import FrontSpinner from './FromtSpinner'
+import FrontSpinner from './FrontSpinner'
 
 class ProductList extends Component {
     state = {

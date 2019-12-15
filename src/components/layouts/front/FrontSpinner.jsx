@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 
-class FromtSpinner extends Component {
+class FrontSpinner extends Component {
   render() {
     return (
       <div style={{margin: "50% 50%"}}>
@@ -18,4 +18,4 @@ class FromtSpinner extends Component {
   }
 }
 
-export default FromtSpinner;
+export default FrontSpinner;
